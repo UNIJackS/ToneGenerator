@@ -46,9 +46,12 @@ int main() {
 
     for (int currentNote = 0; currentNote < rawWaveForm.size(); currentNote += 1) {
         for (int currentSample = 0; currentSample < samplesPerNote; currentSample += 1) {
-            if (currentSample < 50) {
-                waveForm.push_back(static_cast<int>(volume * (sin(2 * 3.14159 * rawWaveForm[currentNote] * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 2) * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 4) * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 8) * currentSample * dt))));
+            if (currentSample < 80) {
+                waveForm.push_back(static_cast<int>((633* currentSample * dt) * (sin(2 * 3.14159 * rawWaveForm[currentNote] * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 2) * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 4) * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 8) * currentSample * dt))));
 
+            }
+            else {
+                waveForm.push_back(static_cast<int>((200/(currentSample * dt)) * (sin(2 * 3.14159 * rawWaveForm[currentNote] * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 2) * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 4) * currentSample * dt) + sin(2 * 3.14159 * (rawWaveForm[currentNote] / 8) * currentSample * dt))));
             }
         }
     }
