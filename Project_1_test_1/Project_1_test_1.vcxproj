@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="challange.cpp" />
     <ClCompile Include="completion.cpp" />
     <ClCompile Include="core.cpp" />
   </ItemGroup>

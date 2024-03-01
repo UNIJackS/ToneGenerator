@@ -21,6 +21,9 @@
     <ClCompile Include="completion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="challange.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="wav.hpp">
