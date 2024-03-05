@@ -1,4 +1,4 @@
-/*
+
 
 //------- Imports -------
 #include <iostream> // input-output library 
@@ -30,22 +30,18 @@ float dt = 1.0 / sample_rate; // time between samples
 int main() {
     // or you can use vector 
     std::vector<int> waveform;
-    float first_tone_frequincy = 1;
-    float second_tone_frequincy = 2;
+    float first_tone_frequincy = 1500;
+    float second_tone_frequincy = 600;
     int volume = 30000;// 6000 is loud enough 
 
     int cycle_num = 0;
 
     for (int cycle_num = 0; cycle_num < num_of_cycles; cycle_num += 1) {
-        cout << "first loop run";
         for (int i_sample = 0; i_sample < single_cycle_samples; i_sample += 1) {
-            cout << "second loop run";
             if (i_sample < first_tone_duration * sample_rate) {
-                cout << "first if run";
                 waveform.push_back(static_cast<int>(volume * sin(2 * 3.14159 * first_tone_frequincy * i_sample * dt)));
             }
             else if (i_sample < second_tone_duration * sample_rate) {
-                cout << "second if run";
                 waveform.push_back(static_cast<int>(volume * sin(2 * 3.14159 * second_tone_frequincy * i_sample * dt)));
             }
         }
@@ -61,4 +57,3 @@ int main() {
     return 0;
 }
 
-*/
