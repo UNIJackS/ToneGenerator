@@ -39,7 +39,6 @@ int main() {
     for (int cycle_num = 0; cycle_num < num_of_cycles; cycle_num += 1) {
         for (int i_sample = 0; i_sample < single_cycle_samples; i_sample += 1) {
             if (i_sample < first_tone_duration * sample_rate) {
-                cout << static_cast<int>(volume * sin(2 * 3.14159 * first_tone_frequincy * i_sample * dt)) << endl;
                 waveform.push_back(static_cast<int>(volume * sin(2 * 3.14159 * first_tone_frequincy * i_sample * dt)));
             }
             else if (i_sample < second_tone_duration * sample_rate) {
