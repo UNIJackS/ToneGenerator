@@ -1,4 +1,3 @@
-/*
 
 //------- Imports -------
 #include <iostream> // input-output library 
@@ -72,10 +71,8 @@ int main() {
         }
     }
 
+
     MakeWavFromVector("tone1.wav", sampleRate, waveForm);
     waveForm.clear(); 
     return 0;
 }
-
-
-*/
