@@ -11,7 +11,7 @@ using namespace::std;
 
 string fileName = "anotherbrickinthewall.txt";
 
-int samplesPerNote = 300;// dont touch pls will break
+int samplesPerNote = 1000;// dont touch pls will break
 float noteDuration = 0.13;// dont touch pls will break
 
 int sampleRate = samplesPerNote / noteDuration; // samples per second, select value which provides good quality sound  
@@ -39,12 +39,12 @@ vector<float> readFile(string fileName) {
 
 // This fuction takes the current note and sample of that note and returns the amplatude
 float calculateSine(int currentNote, int currentSample) {
-    int numOfHarmonics = 4;     // The number of harmonics to add
+    int numOfHarmonics = 3;     // The number of harmonics to add
     int harmonicMultiplyer = 1; // The inital number for the harmonics
     float output = 0;           // initalising the output
     // This loop adds each harmonic to the output varable 
     for (int harmonicNum = 0; harmonicNum < numOfHarmonics; harmonicNum += 1) {
-        output = output + sin(2 * 3.14159 * (currentNote / harmonicMultiplyer) * currentSample * dt);
+        output = output + sin(2 * 3.14159 * (currentNote * harmonicMultiplyer) * currentSample * dt);
         harmonicMultiplyer = harmonicMultiplyer * 2;
     }
     
@@ -62,8 +62,8 @@ int main() {
         //loops for the number of samples each note contains
         for (int currentSample = 0; currentSample < samplesPerNote; currentSample += 1) {
             //checks if it is writting the first 80 samples and if so adds the attack to the amplatude
-            if (currentSample < 80) {
-                waveForm.push_back(static_cast<int>((633 * currentSample * dt) * calculateSine(rawWaveForm[currentNote],currentSample)));
+            if (currentSample < 269) {
+                waveForm.push_back(static_cast<int>((189900 * currentSample * dt) * calculateSine(rawWaveForm[currentNote],currentSample)));
             }
             else {
                 waveForm.push_back(static_cast<int>((200/(currentSample * dt)) * calculateSine(rawWaveForm[currentNote], currentSample)));
